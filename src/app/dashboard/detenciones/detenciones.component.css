@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+.th {
+  width: 10%;
+}
+.container {
+display: flex;
+margin: 10px 40px;
+padding: 10px;
+}
+.container-title {
+margin-left: 100px;
+margin-right: 100px;
+display: flex;
+margin-top: 10px;
+margin-bottom: 10px;
+justify-content: flex-start;
+gap: 10px;
+}
+.container-title h1{
+display: contents;
+}
+
+.puntero{
+  cursor: pointer;
+}
+
+.dias_rojo
+{
+  background-color: red;
+}
+

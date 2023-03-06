@@ -1,0 +1,69 @@
+
+<div class="mat-elevation-z1">
+  <div class="container-title">
+    <h1>Listado de Detenidos</h1>
+     <!--button mat-stroked-button color="primary"(click)="listDetenciones()"> Obtener Detenciones </button-->
+  </div>
+  <table mat-table [dataSource]="detenciones" class="detencion-table mat-elevation-z8">
+    <!-- Implicit Column -->
+    
+    <ng-container matColumnDef='detencion_id' >
+      <th mat-header-cell *matHeaderCellDef> ID DETENCION </th>
+      <td mat-cell *matCellDef="let element"> {{element.detencion_id}} </td>
+    </ng-container>
+  
+    <!-- Index Column -->
+    <ng-container matColumnDef="fecha" >
+      <th mat-header-cell *matHeaderCellDef> FECHA </th>
+      <td mat-cell *matCellDef="let element of orderByFecha"> {{element.fecha | date: "dd/MM/yyyy hh:mm"}} </td>
+    </ng-container>
+  
+    <!-- Count Column -->
+    <ng-container matColumnDef="ape_nombre">
+      <th mat-header-cell *matHeaderCellDef> APELLIDO Y NOMBRE  </th>
+      <td mat-cell *matCellDef="let element"> {{element.persona.apellido}} {{element.persona.nombre}} </td>
+    </ng-container>
+  
+    <!-- Last Column -->
+    <ng-container matColumnDef="dias">
+      <th mat-header-cell *matHeaderCellDef> CANT. DIAS </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'dias_rojo':element.cantidad_dias>30}"> {{element.cantidad_dias}} </td>
+    </ng-container>
+  
+    <!-- Even Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> DEPENDENCIA </th>
+      <td mat-cell *matCellDef="let element"> {{element.dependencia.descripcion}} </td>
+    </ng-container>
+  
+    <!-- Odd Column -->
+    <ng-container matColumnDef="delito">
+      <th mat-header-cell *matHeaderCellDef> DELITO </th>
+      <td mat-cell *matCellDef="let element"> {{element.delito}} </td>
+    </ng-container>
+
+    <!-- Odd Column -->
+    <ng-container matColumnDef="botones">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+        <!-- <button mat-stroked-button color="primary"(click)="mostrar_detalle()"> 
+          <a [routerLink]="'/expandir/:1484'">Detalle</a>
+         </button> -->
+         <a class="pointer" style="color:#0aac2d" matTooltip="Expandir" 
+         routerLink='/expandir/{{element.detencion_id}}'><mat-icon>add</mat-icon></a>
+         <!-- <button [routerLink]="'/expandir/:1484'">Detalle</button>
+                   
+          --> 
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    click="calcularEdad()" 
+    ></tr>
+  </table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" aria-label="select page"></mat-paginator>
+ 
+</div>
+

@@ -1,0 +1,54 @@
+<div class="mat-elevation-z5">
+  <div class="container-title">
+    <h1>Detalle de Detenidos</h1>
+</div>
+<div>
+
+ 
+    <mat-form-field >
+      <mat-label>ID: </mat-label>
+      <input matInput placeholder="Detencion Id" value={{expandir.detencion_id}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>APELLIDO: </mat-label>
+      <input matInput placeholder="ape_nombre" value={{expandir.persona.apellido}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>NOMBRE: </mat-label>
+      <input matInput placeholder="ape_nombre" value={{expandir.persona.nombre}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>DNI: </mat-label>
+      <input matInput placeholder="dni" value={{expandir.persona.numero_documento}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>FECHA DE NACIMIENTO: </mat-label>
+      <input matInput placeholder="fecha_nacimiento" value={{expandir.persona.fecha_nacimiento}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>FECHA DE DETENCION: </mat-label>
+      <input matInput placeholder="Fecha" value={{expandir.fecha}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>DEPENDENCIA </mat-label>
+      <input matInput placeholder="dependencia" value={{expandir.dependencia.descripcion}}>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>DELITO: </mat-label>
+      <input matInput placeholder="delito" value={{expandir.delito}}>
+    </mat-form-field>
+  
+
+
+
+<button mat-stroked-button color="primary"(click)="onBack()"> 
+          <a>Cerrar</a>
+         </button>
+</div>
