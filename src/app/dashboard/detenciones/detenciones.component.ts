@@ -3,8 +3,6 @@ import { ApiService } from 'src/app/api.service';
 import { Detencion } from '../interfaces/detenciones.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { ActivatedRoute, Router } from '@angular/router';
-
 
 
 
@@ -35,7 +33,11 @@ export class DetencionesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.httpApiService.getDetenciones().subscribe((response)=>{this.detenciones = response;});
+    
+
+    this.httpApiService.getDetenciones().subscribe((response)=>{this.detenciones = response;}, 
+    error => console.log(error));
+    
    
     
   }
@@ -48,30 +50,53 @@ export class DetencionesComponent implements OnInit {
   
   }
 
-  // calcularEdad(): number{
-  //   const ahora: Date = new Date();
-  //   const birthDate: Date = new Date(this.detenciones[0].persona.fecha_nacimiento);
-   
-  //       let edad: number = ahora.getFullYear() - birthDate.getFullYear();
-  //       const month: number = ahora.getMonth() - birthDate.getMonth();
-  //       if (month < 0 || (month === 0 && ahora.getDate() < birthDate.getDate())) {
-  //           edad--;
-  //                 console.log(edad)
+  menoresEdad(){
 
-  //           }    
-                               
+       this.httpApiService.getDetenciones()
+      .subscribe((response)=>{
+         this.detenciones = response;
+         console.log(response);
+        // response.forEach((element: any) => {
+        //   console.log(element.detencion_id)
+          
 
-  //       if (edad<18){
-  //             const guardar_id= Number (this.detenciones[0].detencion_id);
-  //             console.log(guardar_id)
-  //             return guardar_id; 
+        // })
+
+       })
+       
+
+       this.calcularEdad()
+     }
+
+
+
+  calcularEdad(): void{
+    this.detenciones.forEach((element: any) => {
+    const ahora: Date = new Date();
+    const birthDate: Date = new Date(element.persona.fecha_nacimiento);
+        let edad: number = ahora.getFullYear() - birthDate.getFullYear();
+        const month: number = ahora.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && ahora.getDate() < birthDate.getDate())) {
+            edad--;
+                  console.log("esta es la edad",edad)
+            }                             
+
+        if (edad<18){
+              const guardar_id= Number (element.detencion_id);
+              console.log("Menor", guardar_id)
+              return guardar_id; 
               
            
-  //       } return edad;
+        } console.log("Mayor")
+         return edad;
 
-  // }
+      })
+
+  }
 
 
+
+  // let fecha = formatDate(new Date(), 'yyyy-MM-dd', 'en-US')
  
 
 

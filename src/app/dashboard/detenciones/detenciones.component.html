@@ -2,8 +2,12 @@
 <div class="mat-elevation-z1">
   <div class="container-title">
     <h1>Listado de Detenidos</h1>
+        <button mat-stroked-button color="primary"(click)="menoresEdad()"> Menores de 18</button>
+        
+
      <!--button mat-stroked-button color="primary"(click)="listDetenciones()"> Obtener Detenciones </button-->
   </div>
+
   <table mat-table [dataSource]="detenciones" class="detencion-table mat-elevation-z8">
     <!-- Implicit Column -->
     
@@ -58,10 +62,9 @@
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-    click="calcularEdad()" 
-    ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
 
   <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" aria-label="select page"></mat-paginator>
  
