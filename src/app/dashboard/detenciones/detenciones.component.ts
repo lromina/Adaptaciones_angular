@@ -56,11 +56,7 @@ export class DetencionesComponent implements OnInit {
       .subscribe((response)=>{
          this.detenciones = response;
          console.log(response);
-        // response.forEach((element: any) => {
-        //   console.log(element.detencion_id)
-          
-
-        // })
+      
 
        })
        
@@ -90,13 +86,15 @@ export class DetencionesComponent implements OnInit {
         } console.log("Mayor")
          return edad;
 
-      })
+        
+
+      }) 
 
   }
 
 
 
-  // let fecha = formatDate(new Date(), 'yyyy-MM-dd', 'en-US')
+ 
  
 
 

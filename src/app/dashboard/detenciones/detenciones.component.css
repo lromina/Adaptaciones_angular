@@ -26,8 +26,10 @@ display: contents;
   cursor: pointer;
 }
 
-.dias_rojo
+.dias
 {
-  background-color: red;
+  
+  color: red;
+  font-size: 18px;
 }
 

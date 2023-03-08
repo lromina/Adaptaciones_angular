@@ -31,7 +31,7 @@
     <!-- Last Column -->
     <ng-container matColumnDef="dias">
       <th mat-header-cell *matHeaderCellDef> CANT. DIAS </th>
-      <td mat-cell *matCellDef="let element" [ngClass]="{'dias_rojo':element.cantidad_dias>30}"> {{element.cantidad_dias}} </td>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'dias':element.cantidad_dias>30}"> {{element.cantidad_dias}} </td>
     </ng-container>
   
     <!-- Even Column -->
@@ -55,9 +55,7 @@
          </button> -->
          <a class="pointer" style="color:#0aac2d" matTooltip="Expandir" 
          routerLink='/expandir/{{element.detencion_id}}'><mat-icon>add</mat-icon></a>
-         <!-- <button [routerLink]="'/expandir/:1484'">Detalle</button>
-                   
-          --> 
+
       </td>
     </ng-container>
   

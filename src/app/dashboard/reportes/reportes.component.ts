@@ -13,6 +13,8 @@ export class ReportesComponent implements OnInit {
   total_audiencias:number = 0;
   ultimo_movimiento:Date | undefined;
 
+  click:boolean=false;
+
   constructor(private httpApiService: ApiService) { }
 
   ngOnInit(): void {
@@ -24,6 +26,11 @@ export class ReportesComponent implements OnInit {
   calcularReporte(): void{
     console.log('calcular Reporte Totales')
     console.log (this.detenciones.length)
+  }
+
+  guardarReporte(){
+    
+
   }
 
 
